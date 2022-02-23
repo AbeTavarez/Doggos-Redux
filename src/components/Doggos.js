@@ -1,7 +1,7 @@
 const Doggos = ({ dog, favorite }) => {
   return (
     <div>
-      <h1>Doggos</h1>
+      <h1>Doggo</h1>
       <div style={styles.container}>
         <img src={dog} style={styles.img} />
       </div>

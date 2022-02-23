@@ -1,11 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-import DoggosList from './components/DoggosList';
+import { Link, Switch, Route } from "react-router-dom";
+import "./App.css";
+import DoggosList from "./components/DoggosList";
+import Favorites from "./components/Favorites";
 
 function App() {
   return (
     <div className="App">
-     <DoggosList />
+      <header>
+        <h1>DOGGOS APP</h1>
+      </header>
+
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/favorites">Favorites</Link>
+      </nav>
+
+      <main>
+        <Switch>
+          <Route exact path="/" component={DoggosList} />
+          <Route path="/favorites" component={Favorites} />
+        </Switch>
+      </main>
     </div>
   );
 }
