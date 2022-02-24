@@ -7,19 +7,20 @@ import {
 } from "../actions/actions";
 
 const initialState = {
-    doggosList: [],
-    isLoading: false,
-    error: "",
-    favorites: [],
+  doggosList: [],
+  isLoading: false,
+  error: "",
+  favorites: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAVORITE:
-      // spread state and grab the piece that you need, grab the key
+      console.log(action.payload);
+      // spread state and grab the piece that you need to change
       return {
-        ...state.favorites,
-        favorites: [...state.favorites, action.payload],
+        ...state,
+        favorites: [action.payload, ...state.favorites],
       };
     case REMOVE_FAVORITE:
       let newState = state.favorites.filter((dog) => dog !== action.payload);
@@ -29,7 +30,7 @@ export default (state = initialState, action) => {
       };
     case FETCH_DOG_START:
       return {
-        ...state.isLoading,
+          ...state,
         doggosList: [],
         isLoading: true,
       };
@@ -38,13 +39,13 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         doggosList: action.payload,
-        error: ""
+        error: "",
       };
     case FETCH_DOG_FAIL:
       return {
-        ...state.doggoState.isLoading,
+        ...state.isLoading,
         isLoading: false,
-        ...state.doggoState.error,
+        ...state.error,
         error: action.payload,
       };
     default:

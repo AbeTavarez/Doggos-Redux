@@ -3,6 +3,7 @@ import { fetchDoggos } from "../actions/actions";
 import Doggos from "./Doggos";
 
 const DoggosList = ({ isLoading, doggos, error, fetchDoggos }) => {
+    console.log(doggos);
   const handleClick = (e) => {
     fetchDoggos();
   };
