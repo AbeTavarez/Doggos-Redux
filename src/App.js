@@ -10,7 +10,7 @@ function App() {
         <h1>DOGGOS APP</h1>
       </header>
 
-      <nav>
+      <nav style={styles.nav}>
         <Link to="/">Home</Link>
         <Link to="/favorites">Favorites</Link>
       </nav>
@@ -24,5 +24,13 @@ function App() {
     </div>
   );
 }
+
+const styles = {
+  nav: {
+    display: "flex",
+    justifyContent: "space-around",
+    marginBottom: '50px'
+  },
+};
 
 export default App;
